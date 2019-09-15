@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <!-- 为实现抛出"输入了非数值类型的内容"的错误，将输入框的input有number修改为了text -->
+    <input id="first-number" type="text" value="0" placeholder="第一个数字">  
+    <input id="second-number" type="text" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+    document.getElementById("add-btn").onclick = function() {
+      var firNum, secNum;
+      firNum = document.getElementById("first-number").value
+      secNum = document.getElementById("second-number").value
+      try {
+        if (isNaN(firNum) || isNaN(secNum)) throw "输入了非数值类型的内容"
+        document.getElementById("result").innerHTML = parseInt(firNum) + parseInt(secNum)
+      }
+      catch(err) {
+        document.getElementById("result").innerHTML = "输入错误：" + err
+      }
+    }
+
+    document.getElementById("minus-btn").onclick = function() {
+      var firNum, secNum;
+      firNum = document.getElementById("first-number").value
+      secNum = document.getElementById("second-number").value
+      try {
+        if (isNaN(firNum) || isNaN(secNum)) throw "输入了非数值类型的内容"
+        document.getElementById("result").innerHTML = parseInt(firNum) - parseInt(secNum)
+      }
+      catch(err) {
+        document.getElementById("result").innerHTML = "输入错误：" + err
+      }
+    }
+
+    document.getElementById("times-btn").onclick = function() {
+      var firNum, secNum;
+      firNum = document.getElementById("first-number").value
+      secNum = document.getElementById("second-number").value
+      try {
+        if (isNaN(firNum) || isNaN(secNum)) throw "输入了非数值类型的内容"
+        document.getElementById("result").innerHTML = parseInt(firNum) * parseInt(secNum)
+      }
+      catch(err) {
+        document.getElementById("result").innerHTML = "输入错误：" + err
+      }
+    }
+
+
+    document.getElementById("divide-btn").onclick = function() {
+      var firNum, secNum;
+      firNum = document.getElementById("first-number").value
+      secNum = document.getElementById("second-number").value
+      try {
+        if (isNaN(firNum) || isNaN(secNum)) throw "输入了非数值类型的内容"
+        if (Number(secNum) == 0) throw "除数不能为0"
+        document.getElementById("result").innerHTML = parseInt(firNum) / parseInt(secNum)
+      }
+      catch(err) {
+        document.getElementById("result").innerHTML = "输入错误：" + err
+      }
+    }
+
+    </script>
+</body>
+</html>

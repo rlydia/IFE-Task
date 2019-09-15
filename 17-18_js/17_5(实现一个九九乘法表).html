@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 
+  小练习，练习使用循环实现一个九九乘法表
+
+  第一步，最低要求：在Console中按行输出 n * m = t
+  然后，尝试在网页中，使用table来实现一个九九乘法表 
+-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>九九乘法表</title>
+  <style>
+    table {
+      margin-top: 10px;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 5px;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <h3>Hello World</h3>
+  <button onclick="mul()">九九乘法表</button>
+  <table id="table" ></table>
+</body>
+<script>
+  function mul1() {
+    for (var i=1; i<=9; i++) {
+      var chart="";
+      for (var j=1; j<=i; j++) {
+        chart += (`${j} * ${i} = ${i*j}\t`)
+      }
+      console.log(chart)
+      document.write(chart + "<br>")
+    }
+  }
+
+  function mul2() {
+    document.write("<table>")
+    for (var i=1; i<=9; i++) {
+      document.write("<tr>")
+      for (var j=1; j<=i; j++) {
+        // document.write("<td>" + j + "&times;" + i + "=" + (j * i) + "<td>")
+        document.write(`<td> ${j} &times; ${i} = ${i*j} </td>`)
+      }
+      document.write("</tr>")
+    }
+    document.write("</table>")
+  }
+  
+
+  function mul() {
+    var t = document.getElementById("table")
+    for (var i=1; i<=9; i++) {
+      var tr = document.createElement("tr")
+      for (var j=1; j<=i; j++) {
+        var td = document.createElement("td")
+        var node = document.createTextNode(`${j} x ${i} = ${i*j}`)
+        td.appendChild(node)
+        tr.appendChild(td)
+        t.appendChild(tr)
+      }
+    }
+  }
+</script>
+</html>

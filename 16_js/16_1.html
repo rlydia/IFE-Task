@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IFE ECMAScript</title>
+</head>
+<body>
+  <h1>Demo</h1>
+  <p id="content-wrapper">Hello World</p>
+  <input id="name-input" type="text" placeholder="请输入你的名字">
+  <button id="send-btn">发送</button>
+  <script>
+    document.getElementById("send-btn").onclick = function() {
+      // innerHTML与innerText是相同的
+      document.getElementById("content-wrapper").innerHTML = "Hello" + document.getElementById("name-input").value
+    }
+
+
+    // document.getElementById("send-btn").addEventListener("click", function() {
+    //   document.getElementById("content-wrapper").innerHTML = "Hello" + document.getElementById("name-input").value
+    // })
+  </script>
+</body>
+</html>

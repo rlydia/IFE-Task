@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- 
+  今天最后一个练习，在你的简历中，实现一个，当用户访问页面的时候，根据当前时间，在页面中输出不同的问候语。
+  比如早上的时候，输出早上好，晚上的时候是晚上好。
+-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>根据当前时间，在页面中输出不同的问候语</title>
+</head>
+<body onload="greating()">
+    <!-- JS 页面加载触发事件 document.ready和onload的区别 -->
+    <!-- https://blog.csdn.net/jdsxzhao/article/details/44646463 -->
+  <p id="greating"></p>
+</body>
+<script>
+  function greating() {
+    var d = new Date()
+    var hour = d.getHours()
+    if (hour >= 0 && hour < 12) {
+      document.getElementById("greating").innerHTML = "早上好，Lydia！"
+    } else if (hour == 12) {
+      document.getElementById("greating").innerHTML= "中午好，Lydia！"
+    } else {
+      document.getElementById("greating").innerHTML= "晚上好，Lydia！"
+    }
+  }
+</script>
+</html>

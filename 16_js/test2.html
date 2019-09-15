@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>按钮</title>
+  <!-- <link rel="stylesheet" href="./css.js"> -->
+  <!-- <style></style> -->
+</head>
+<body>
+  <button>点我呀</button>
+  <button>点我呀</button>  
+  <button>点我呀</button>  
+  <button>点我呀</button>
+  <!-- 内链Javascript处理器 -->
+  <!-- <button onclick="createParagraph()">点我呀</button> -->
+</body>
+
+<!-- 外部JavaScript -->
+<!-- 脚本阻塞：async, defer -->
+<!-- async异步属性：告知浏览器在遇到 <script> 元素时不要中断后续 HTML 内容的加载; 这样脚本的运行次序就无法控制，只是脚本不会阻止剩余页面的显示。 -->
+<!-- defer属性：脚本将按照在页面中出现的顺序加载和运行， -->
+<!-- <script src="script.js" async></script> -->
+<!-- 脚本调用策略小结：
+如果脚本无需等待页面解析，且无依赖独立运行，那么应使用 async。
+如果脚本需要等待解析，且依赖于其它脚本，调用这些脚本时应使用 defer，将关联的脚本按所需顺序置于 HTML 中。 -->
+
+<script>
+  // 当初始的HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。 (即 dom内容加载完毕后)
+  document.addEventListener("DOMContentLoaded", function() {
+    function createParagraph() {
+      let para = document.createElement('p')
+      para.textContent = "你点击了这个按钮!!!"
+      document.body.appendChild(para)
+    }
+
+    let buttons = document.querySelectorAll('button')
+    // console.log(buttons)
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", createParagraph)
+    }
+  })
+</script>
+</html>
