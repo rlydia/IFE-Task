@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>过滤问候留言</title>
+</head>
+<body>
+  <div class="output">
+    <ul></ul>
+  </div>
+  <button id="show">过滤圣诞问候</button>
+  <button id="reset">reset</button>
+</body>
+<script>
+var list = document.querySelector('.output ul');
+list.innerHTML = '';
+var greetings = ['Happy Birthday!',
+                 'Merry Christmas my love',
+                 'A happy Christmas to all the family',
+                 'You\'re all I want for Christmas',
+                 'Get well soon'];
+reset()
+function reset() {
+  for (var i = 0; i < greetings.length; i++) {
+    var input = greetings[i];
+    // Your conditional test needs to go inside the parentheses
+    // in the line below, replacing what's currently there
+    if (greetings[i]) {
+      var result = input;
+      var listItem = document.createElement('li');
+      listItem.textContent = result;
+      list.appendChild(listItem);
+    }
+  }
+}
+
+document.getElementById("reset").onclick = function() {
+  list.innerHTML = ""
+  reset()
+}
+
+document.getElementById("show").onclick = function() {
+  list.innerHTML = ""
+  for (var i = 0; i < greetings.length; i++) {
+    var input = greetings[i];
+    if (greetings[i] && (greetings[i].indexOf("Christmas") !== -1)) {
+      var result = input;
+      var listItem = document.createElement('li')
+      listItem.textContent = result;
+      list.appendChild(listItem);
+    }
+  }
+}
+</script>
+</html>

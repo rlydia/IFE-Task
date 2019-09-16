@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>updateBtn</title>
+</head>
+<body>
+  <button>Start machine</button>
+  <p>The machine is stopped.</p>
+</body>
+<script>
+  // Note: 这种在两个状态之间来回交换的行为通常被称为 切换 (toggle)。它在一个状态和另一个状态之间切换 - 点亮，熄灭等
+  const btn = document.querySelector("button")
+  const txt = document.querySelector("p")
+
+  btn.addEventListener("click", updateBtn)
+
+  function updateBtn() {
+    if (btn.textContent === "Start machine") {
+      btn.textContent = 'Stop machine';
+      txt.textContent = 'The machine has started!';
+    } else {
+      btn.textContent = 'Start machine';
+      txt.textContent = 'The machine is stopped.';
+    }
+  }
+
+</script>
+</html>

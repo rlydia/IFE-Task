@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>大写修正</title>
+</head>
+<body>
+  <div class="output">
+    <ul></ul>
+  </div>
+  <button id="show">Show solution</button>  
+  <button id="reset">Reset</button>
+</body>
+<script>
+var list = document.querySelector(".output ul")
+list.innerHTML = ""
+var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+
+reset()
+function reset() {
+  for (var i=0; i<cities.length; i++) {
+    var city = cities[i]
+    var result = city
+    var listItem = document.createElement("li")
+    listItem.textContent = result
+    list.appendChild(listItem)
+  }
+}
+
+document.getElementById("reset").onclick = function() {
+  list.innerHTML = ""
+  reset()
+}
+
+document.getElementById("show").onclick = function() {
+  list.innerHTML = ""
+  for (var i=0; i<cities.length; i++) {
+    var city = cities[i]
+    var lowerCity = city.toLowerCase()
+    var firLetter = lowerCity[0]
+    var result = lowerCity.replace(firLetter, firLetter.toUpperCase())
+    
+    var listItem = document.createElement("li")
+    listItem.textContent = result
+    list.appendChild(listItem)
+  }
+}
+</script>
+</html>

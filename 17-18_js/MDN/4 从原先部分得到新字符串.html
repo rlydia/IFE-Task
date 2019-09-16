@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>从原先部分得到新字符串</title>
+</head>
+<body>
+  <div class="output">
+      <ul></ul>
+  </div>
+  <button id="show">Show solution</button>  
+  <button id="reset">Reset</button>
+</body>
+<script>
+
+var list = document.querySelector('.output ul');
+list.innerHTML = '';
+console.log(1)
+var stations = ['MAN675847583748sjt567654;Manchester Piccadilly',
+              'GNF576746573fhdg4737dh4;Greenfield',
+              'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+              'SYB4f65hf75f736463;Stalybridge',
+              'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+
+reset()
+function reset() {
+  for (var i = 0; i < stations.length; i++) {
+    var input = stations[i]
+    
+    var res = input
+    var listItem = document.createElement("li")
+    listItem.textContent = res
+    list.appendChild(listItem)
+ }
+}
+document.getElementById("reset").onclick = function() {
+  list.innerHTML = ''
+  reset()
+}
+document.getElementById("show").onclick = function() {
+  list.innerHTML = ""
+  for (var i = 0; i < stations.length; i++) {
+    var input = stations[i]
+    var thirdCode = input.slice(0,3)
+    var idx = input.indexOf(";")
+    var staName = input.slice(idx+1)
+    var joinSta = thirdCode + ": " + staName
+    var res = joinSta
+    
+    var listItem = document.createElement("li")
+    listItem.textContent = res
+    list.appendChild(listItem)
+  }
+}
+
+</script>
+</html>
